@@ -11,8 +11,27 @@ open ~/code/Reckon/Reckon.xcodeproj
 
 Pick an iPhone simulator and hit ⌘R. Requires Xcode 16+ / iOS 17+.
 
-To run on your own iPhone: select the target → Signing & Capabilities → pick your
-team, and change the bundle id (`com.sahilchanna.reckon`) if it's taken.
+### On your own iPhone
+
+Xcode needs an Apple account signed in: **Xcode → Settings → Accounts → +**, then
+sign in (password and two-factor — only you can do that part). The project already
+points at team `F873BB58TF`; change it under Signing & Capabilities if you use
+another, and change the bundle id (`com.sahilchanna.reckon`) if it's taken.
+
+Then either press ⌘R with your iPhone selected, or:
+
+```bash
+./Scripts/install-on-device.sh
+```
+
+On a free Apple ID the first launch needs trusting: iPhone → Settings → General →
+VPN & Device Management → trust your developer certificate.
+
+**A free Apple ID cannot use App Groups**, which the widget needs to read your
+scores. If provisioning rejects the entitlement, either join the paid Developer
+Program, or drop the widget: delete the `com.apple.security.application-groups`
+entries from both files in `Config/`. The app itself then works unchanged (it
+falls back to its own storage); the widget just shows placeholder numbers.
 
 For screenshots, launch with `-seedDemo` (a DEBUG-only argument, Scheme → Run →
 Arguments) to fill the app and widget with plausible history. It writes to the
