@@ -34,9 +34,21 @@ if [ -z "${DEVICE_ID:-}" ]; then
 fi
 
 echo "Device: ${DEVICE_NAME//_/ } ($TUNNEL)"
-if [ "$TUNNEL" = "disconnected" ]; then
-    echo "  …not connected right now. Plug the phone in and unlock it, then re-run."
-    echo "  (Wi-Fi installs work too if you ticked 'Connect via network' in Xcode → Devices.)"
+if [ "$TUNNEL" != "connected" ] && [ "${1:-}" != "--force" ]; then
+    cat <<'MSG'
+
+  The phone is paired but not connected, so stopping here.
+
+  Plug it in and unlock it, then run this again. (Or tick "Connect via network"
+  in Xcode → Window → Devices for Wi-Fi installs.)
+
+  Why it matters: with the device offline, automatic signing re-checks it against
+  Apple's servers, which needs a live Xcode account session. Connected, it reuses
+  the profile already on disk and builds without any login.
+
+  Run with --force to build anyway.
+MSG
+    exit 1
 fi
 
 echo "Building for device…"
