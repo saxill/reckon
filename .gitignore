@@ -1,6 +1,15 @@
-# Xcode
-build/
-DerivedData/
+# macOS
+.DS_Store
+
+# Claude Code local state
+.claude/
+
+# ---------- iOS / Xcode ----------
+ios/build/
+ios/DerivedData/
+ios/.build/
+ios/.build-device/
+ios/.build-release/
 *.xcuserstate
 *.xcuserdatad/
 xcuserdata/
@@ -10,9 +19,12 @@ xcuserdata/
 *.dSYM
 *.dSYM.zip
 
-# Local build output from the command line
-.build/
-.build-release/
-
-# macOS
-.DS_Store
+# ---------- Android / Gradle ----------
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+android/*.iml
+android/captures/
+android/.cxx/
