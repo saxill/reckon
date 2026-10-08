@@ -9,6 +9,12 @@ solve time it tracks over your last 14 rounds as the headline number.
 
 Everything is local. No network, no accounts, no analytics.
 
+## Screenshots
+
+| Light | Dark |
+|---|---|
+| ![Home, light](docs/screenshots/home.png) | ![Home, dark](docs/screenshots/home-dark.png) |
+
 ## Platforms
 
 | | Path | Status |

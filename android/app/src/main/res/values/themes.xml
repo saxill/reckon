@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      The screens are all Compose, so this theme only has to get out of the way:
+      no action bar, and a window background in the app's own ink so the launch
+      frame doesn't flash white before the first composition. Everything else —
+      status bar appearance, insets — is set by enableEdgeToEdge() at runtime.
+    -->
+    <style name="Theme.Reckon" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/reckon_ink</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>
