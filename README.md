@@ -19,8 +19,16 @@ Everything is local. No network, no accounts, no analytics.
 
 | | Path | Status |
 |---|---|---|
-| iOS | [`ios/`](ios/) | SwiftUI + SwiftData, iOS 17+, home-screen widget |
-| Android | [`android/`](android/) | Kotlin + Jetpack Compose, in progress |
+| iOS | [`ios/`](ios/) | SwiftUI, iOS 17+, home-screen widget |
+| Android | [`android/`](android/) | Kotlin + Jetpack Compose, Glance widget — done, full parity |
+
+## Download
+
+[v1.0](https://github.com/saxill/reckon/releases/tag/v1.0) has `reckon-android-debug.apk`
+(18 MB), a debug-signed APK that installs on any Android phone, and `Reckon.ipa`
+(1.1 MB), which is development-signed for one registered iPhone and stops
+launching when its profile expires on 2026-10-13. See
+[`docs/install.md`](docs/install.md) for the details and the build-from-source route.
 
 ## iOS
 
@@ -34,4 +42,19 @@ handling and the module layout.
 
 ## Android
 
-Not yet. See [`android/README.md`](android/README.md) once it exists.
+```bash
+cd android
+./gradlew installDebug        # build and install onto a connected phone or emulator
+./gradlew testDebugUnitTest   # run the 35 unit tests
+```
+
+Needs JDK 17 (`brew install openjdk@17`) and an Android SDK; `minSdk` 26,
+`targetSdk` 35. See [`android/README.md`](android/README.md) for the build
+layout, the Daily's cross-platform parity story, and the deliberate differences
+from iOS.
+
+## Documentation
+
+See [`docs/README.md`](docs/README.md) for the documentation index — the
+per-platform READMEs, [`docs/architecture.md`](docs/architecture.md) and
+[`docs/install.md`](docs/install.md).
